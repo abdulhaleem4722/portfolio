@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abdul Haleem – Software Engineer</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            neon: '#00ffcc',
+            accent: '#ff00aa',
+            bgGradient1: '#0f0c29',
+            bgGradient2: '#302b63',
+            bgGradient3: '#24243e',
+            cardGlow: 'rgba(0, 255, 204, 0.15)',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            glow: {
+              '0%': { boxShadow: '0 0 20px rgba(0, 255, 204, 0.3)' },
+              '100%': { boxShadow: '0 0 40px rgba(0, 255, 204, 0.6)' },
+            }
+          }
+        },
+      },
+    }
+  </script>
+
+  <!-- Framer Motion + Tilt.js -->
+  <script src="https://cdn.jsdelivr.net/npm/framer-motion@11/dist/framer-motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .profile-img {
+      animation: float 6s ease-in-out infinite;
+      box-shadow: 0 0 40px rgba(0, 255, 204, 0.5);
+    }
+
+    .card {
+      backdrop-filter: blur(12px);
+      background: rgba(17, 17, 17, 0.6);
+      border: 1px solid rgba(0, 255, 204, 0.3);
+      transition: all 0.4s;
+    }
+
+    .card:hover {
+      border-color: #00ffcc;
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 255, 204, 0.2);
+    }
+  </style>
+</head>
+
+<body class="text-gray-100 font-sans">
+
+  <!-- Floating Particles Background -->
+  <div class="fixed inset-0 pointer-events-none">
+    <div class="absolute top-20 left-20 w-2 h-2 bg-neon rounded-full animate-ping"></div>
+    <div class="absolute top-40 right-32 w-3 h-3 bg-accent rounded-full animate-ping delay-1000"></div>
+    <div class="absolute bottom-32 left-1/3 w-2 h-2 bg-neon rounded-full animate-ping delay-500"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-lg border-b border-neon/30">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <a href="#" class="text-neon text-2xl font-bold animate-glow">AH</a>
+      <div class="space-x-6 text-sm md:text-base">
+        <a href="#home" class="hover:text-neon transition">Home</a>
+        <a href="#about" class="hover:text-neon transition">About</a>
+        <a href="#projects" class="hover:text-neon transition">Projects</a>
+        <a href="#contact" class="hover:text-neon transition">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+    <div class="max-w-5xl mx-auto text-center">
+      <!-- Profile Pic -->
+      <div class="mb-8 flex justify-center">
+        <img src="image/profile.jpg.jpeg" alt="Abdul Haleem"
+          class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-blue-500 p-1 shadow-lg"
+          onerror="this.src='https://via.placeholder.com/180x180/00aaff/ffffff?text=AH'" />
+
+
+
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-bold mb-4">
+        Abdul <span class="text-neon">Haleem</span>
+      </h1>
+      <p class="text-xl md:text-2xl mb-6 text-gray-300">
+        Software Engineer • Web & App Developer • Project Manager
+      </p>
+      <a href="#contact"
+        class="inline-block bg-neon text-black px-8 py-3 rounded-full font-bold hover:scale-110 transition transform">
+        Ready to Innovate
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 text-neon animate-glow">About Me</h2>
+      <p class="text-lg leading-relaxed max-w-2xl mx-auto">
+        Passionate Software Engineer with hands-on experience in web & app development, electronics, and project
+        management.
+        I love turning real-world problems into elegant, user-friendly solutions — from smart lighting to health
+        trackers and advanced laser security systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12 text-neon animate-glow">Featured Projects</h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="card p-6 rounded-2xl tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.4">
+          <img src="image/light-control.jpg.jpg" alt="Automatic Light Control"
+            class="w-full h-32 object-cover rounded-xl mb-4">
+          <h3 class="text-xl font-bold mb-2">Automatic Light Control</h3>
+          <p class="text-sm text-gray-400 mb-4">
+            Auto ON/OFF light using LDR sensor. Saves energy.
+          </p>
+          <div class="w-full h-32 bg-gradient-to-br from-neon/20 to-accent/20 rounded-xl mb-4"></div>
+          <h3 class="text-xl font-bold mb-2">Automatic Light Control</h3>
+          <p class="text-sm text-gray-400 mb-4">
+            Auto ON/OFF light using LDR sensor. Saves energy.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-3 py-1 bg-neon/20 text-neon rounded-full">Arduino</span>
+            <span class="text-xs px-3 py-1 bg-neon/20 text-neon rounded-full">IoT</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card p-6 rounded-2xl tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.4">
+
+
+          <img src="image/health-tracker.jpg.jpg" alt="Health Tracker App"
+            class="w-full h-32 object-cover rounded-xl mb-4">
+          <h3 class="text-xl font-bold mb-2">Health Tracker App</h3>
+          <p class="text-sm text-gray-400 mb-4">
+            Medicine reminder + BP/Sugar dashboard.
+          </p>
+
+
+
+
+          <div class="w-full h-32 bg-gradient-to-br from-accent/20 to-purple-600/20 rounded-xl mb-4"></div>
+          <h3 class="text-xl font-bold mb-2">Health Tracker App</h3>
+          <p class="text-sm text-gray-400 mb-4">
+            Medicine reminder + BP/Sugar dashboard.
+          </p>
+
+
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-3 py-1 bg-neon/20 text-neon rounded-full">HTML</span>
+            <span class="text-xs px-3 py-1 bg-neon/20 text-neon rounded-full">JS</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card p-6 rounded-2xl tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.4">
+
+
+
+          <img src="image/laser-shield.jpg.jpg" alt="LaserShield Security"
+            class="w-full h-32 object-cover rounded-xl mb-4">
+          <h3 class="text-xl font-bold mb-2">LaserShield Security</h3>
+          <p class="text-sm text-gray-400 mb-4">
+            Laser + LDR alarm system. UN SDG aligned.
+          </p>
+
+
+
+
+          <div class="w-full h-32 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-xl mb-4"></div>
+          <h3 class="text-xl font-bold mb-2">LaserShield Security</h3>
+          <p class="text-sm text-gray-400 mb-4">
+            Laser + LDR alarm system. UN SDG aligned.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs px-3 py-1 bg-neon/20 text-neon rounded-full">Laser</span>
+            <span class="text-xs px-3 py-1 bg-neon/20 text-neon rounded-full">Security</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8 text-neon animate-glow">Let’s Work Together!</h2>
+      <div class="space-y-4 text-lg">
+        <p>
+          <a href="mailto:abduhaleem4722@gmail.com" class="text-neon underline hover:text-white transition">
+            abduhaleem4722@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/abdul-haleem-bhayo-895717351" target="_blank"
+            class="text-neon underline hover:text-white transition">
+            LinkedIn Profile
+          </a>
+        </p>
+
+        <p>
+    <a href="https://wa.me/923153275238" target="_blank" class="text-neon underline hover:text-white transition flex items-center justify-center gap-2">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+      </svg>
+      +92 315 3275238 (WhatsApp)
+    </a>
+  </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-sm text-gray-400 border-t border-neon/20">
+    © 2025 <span class="text-neon">Abdul Haleem</span>. Made with ❤️ & Code
+  </footer>
+
+  <!-- Animations -->
+  <script>
+    // Fade In on Scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('h1, h2, p, .card, img').forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'all 0.9s ease-out';
+      observer.observe(el);
+    });
+
+    // 3D Tilt
+    VanillaTilt.init(document.querySelectorAll(".tilt"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.4,
+    });
+  </script>
+
+</body>
+
+</html>
