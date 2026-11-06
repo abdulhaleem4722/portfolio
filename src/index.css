@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #2563eb;
+  --color-accent-dark: #1d4ed8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #334155;
+  font-family: "Poppins", system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
+
+/* ===== Dark mode ===== */
+.dark {
+  --color-accent: #3b82f6;
+  --color-accent-dark: #2563eb;
+}
+
+.dark body {
+  background-color: #0b1120;
+  color: #cbd5e1;
+}
+
+.dark::-webkit-scrollbar-track { background: #0b1120; }
+.dark::-webkit-scrollbar-thumb { background: #3b82f6; }
+
+@layer utilities {
+  :where(.dark) .bg-white { background-color: #131a2c; }
+  :where(.dark) .bg-white\/90 { background-color: rgba(11, 17, 32, 0.9); }
+
+  :where(.dark) .text-slate-900 { color: #f1f5f9; }
+  :where(.dark) .text-slate-800 { color: #e2e8f0; }
+  :where(.dark) .text-slate-700 { color: #cbd5e1; }
+  :where(.dark) .text-slate-600 { color: #94a3b8; }
+
+  :where(.dark) .border-slate-200 { border-color: #1f2a44; }
+  :where(.dark) .border-slate-300 { border-color: #2b3654; }
+}
