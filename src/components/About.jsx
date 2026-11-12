@@ -3,8 +3,8 @@ import { motion, useInView } from "framer-motion";
 import profileImg from "../assets/profile.png";
 
 const stats = [
-  { label: "Years Experience", value: 1 },
-  { label: "Projects Built", value: 5 },
+  { label: "Years Experience", value: 2 },
+  { label: "Projects Built", value: 10 },
   { label: "Tech Stacks", value: 3 },
   { label: "Internships", value: 1 },
 ];
